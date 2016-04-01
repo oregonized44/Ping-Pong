@@ -1,27 +1,31 @@
 function PingPong(input){
-  var userInput = input.length, i = 0,
+  //declaring my variables
+  var userInput = input.length, i = 0
+  //while these conditions are met...
   while(userInput % 3 === 0){
-    $('#result').append('ping');
+    $('#list').append('<li>' + 'ping' + '</li>');
     i++;
   }
   while(userInput % 5 === 0){
-    $('#result').append('pong');
+    $('#list').append('<li>' + 'pong' + '</li>');
     i++;
   }
   while(userInput % 15 === 0){
-    $('#result').append('pingpong');
+    $('#list').append('<li>' + 'pingpong' + '</li>');
     i++;
   }
   while(userInput % 3 !== 0 && userInput % 5 === 0 && userInput % 15 === 0){
-    $('#result').append(i);
+    $('#list')
+    i++;
   }
-  i++;
-
-
 }
+//event listener for user's choice
 $(document).ready(function(){
-  $('#button').click(function(){
-    PingPong();
+  $('#button').click(function(event){
+    event.preventDefault();
+    console.log('event fires');
+    var userSelectedNumber = .val();
+    PingPong(userSelectedNumber);
 
 
 

@@ -16,8 +16,8 @@ function PingPong(input){
 $(document).ready(function(){
   $('#button').click(function(event){
     event.preventDefault();
-    console.log('fires');
     var userSelectedNumber = $('#numberChoice').val();
     PingPong(userSelectedNumber);
+    $('#button').hide();
   });
 });

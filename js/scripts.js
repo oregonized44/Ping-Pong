@@ -1,13 +1,15 @@
+var numbers = [];
+
 function PingPong(input){
   for(var counter = 1, userInput = input; counter <= userInput; counter++){
     if(counter % 15 === 0){
-      $('#list').append('<li class = "pingpong">' + 'pingpong' + '</li>');
+      numbers.push("pingpong");
     }else if(counter % 5 === 0){
-      $('#list').append('<li class = "pong">' + 'pong' + '</li>');
+      numbers.push("pong");
     }else if(counter % 3 === 0){
-      $('#list').append('<li class = "pingpong">' + 'ping' + '</li>');
+      numbers.push("ping");
     }else{
-      $('#list').append('<li>' + counter + '</li>');
+      numbers.push(counter);
     }
   }
 }
@@ -17,7 +19,9 @@ $(document).ready(function(){
   $('#button').click(function(event){
     event.preventDefault();
     var userSelectedNumber = $('#numberChoice').val();
-    PingPong(userSelectedNumber);
-    $('#button').hide();
+    var result = PingPong(userSelectedNumber);
+    for(var i = 0; i < userSelectedNumber; i++){
+      $("#list").append("<li>" + numbers[i] + "</li>");
+    }
   });
 });
